@@ -3,9 +3,9 @@ const ctx = canvas.getContext('2d');
 const statusDiv = document.getElementById('status');
 
 // 棋盘参数
-const GRID_SIZE = 30;
-const MARGIN = 15;
-const BOARD_SIZE = 15;
+const GRID_SIZE = 60;
+const MARGIN = 30;
+const BOARD_SIZE = 30;
 let currentPlayer = 1; // 1: 黑棋, 2: 白棋
 let gameOver = false;
 
@@ -15,7 +15,7 @@ let board = Array(BOARD_SIZE).fill().map(() => Array(BOARD_SIZE).fill(0));
 // 初始化棋盘
 function initBoard() {
     ctx.strokeStyle = '#000';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     
     // 绘制棋盘线
     for (let i = 0; i < BOARD_SIZE; i++) {
@@ -48,7 +48,7 @@ function checkWin(x, y) {
         [ [0,1], [0,-1] ],   // 垂直
         [ [1,1], [-1,-1] ],  // 主对角线
         [ [1,-1], [-1,1] ]   // 副对角线
-    ];
+    ];                        
 
     for (let dir of directions) {
         let count = 1;
@@ -60,7 +60,7 @@ function checkWin(x, y) {
             while (xi >= 0 && xi < BOARD_SIZE && 
                    yi >= 0 && yi < BOARD_SIZE && 
                    board[xi][yi] === currentPlayer) {
-                count++;
+                count++;                        
                 xi += dx;
                 yi += dy;
             }
@@ -68,7 +68,7 @@ function checkWin(x, y) {
         
         if (count >= 5) return true;
     }
-    return false;
+    return false;                        
 }
 
 // 处理点击事件
