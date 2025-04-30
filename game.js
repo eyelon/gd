@@ -3,9 +3,9 @@ const ctx = canvas.getContext('2d');
 const statusDiv = document.getElementById('status');
 
 // 棋盘参数
-const GRID_SIZE = 60;
-const MARGIN = 30;
-const BOARD_SIZE = 30;
+const GRID_SIZE = 30;
+const MARGIN = 15;
+const BOARD_SIZE = 15;
 let currentPlayer = 1; // 1: 黑棋, 2: 白棋
 let gameOver = false;
 
